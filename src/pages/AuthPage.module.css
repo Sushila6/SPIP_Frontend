@@ -1,0 +1,94 @@
+.page { min-height: 100vh; display: flex; flex-direction: column; background: var(--cream); }
+
+.layout {
+  flex: 1; display: grid; grid-template-columns: 1fr 1fr;
+}
+
+/* ── Left panel ── */
+.leftPanel {
+  background: var(--forest); padding: 64px;
+  display: flex; align-items: center; justify-content: center;
+  position: sticky; top: 72px; height: calc(100vh - 72px);
+}
+
+.leftContent { max-width: 420px; display: grid; gap: 24px; }
+
+.leftH1 {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3rem);
+  color: var(--white); line-height: 1.1; letter-spacing: -0.02em;
+}
+
+.leftSub { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.75; }
+
+.leftBenefits { display: grid; gap: 12px; padding-top: 8px; }
+.benefit {
+  display: flex; align-items: center; gap: 12px;
+  color: rgba(255,255,255,0.75); font-size: 0.88rem; font-weight: 500;
+}
+.benefitDot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold-light); flex-shrink: 0;
+}
+
+.switchPrompt {
+  color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-top: 8px;
+}
+.switchPrompt button {
+  background: none; border: none; color: var(--gold-light);
+  cursor: pointer; font-weight: 600; font-size: 0.88rem;
+  transition: var(--transition);
+}
+.switchPrompt button:hover { color: var(--white); }
+
+/* ── Right panel ── */
+.rightPanel {
+  padding: 64px 48px; display: flex;
+  align-items: flex-start; justify-content: center;
+  overflow-y: auto;
+}
+
+.formBox {
+  width: 100%; max-width: 480px;
+  display: grid; gap: 0;
+}
+
+/* ── Tabs ── */
+.tabRow {
+  display: flex; gap: 4px; padding: 4px;
+  background: var(--cream-dark); border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+}
+.tab {
+  flex: 1; padding: 10px; border-radius: calc(var(--radius-lg) - 4px);
+  background: transparent; color: var(--muted);
+  font-weight: 600; font-size: 0.88rem; transition: var(--transition); cursor: pointer; border: none;
+}
+.tabActive { background: var(--white); color: var(--forest); box-shadow: var(--shadow-sm); }
+
+/* ── Form ── */
+.form { display: grid; gap: 18px; padding-bottom: 28px; }
+.formHead { display: grid; gap: 6px; margin-bottom: 4px; }
+.formHead h2 { font-family: var(--font-display); font-size: 1.6rem; color: var(--charcoal); }
+.formHead h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--charcoal); }
+.formHead p  { font-size: 0.85rem; color: var(--muted); }
+
+/* ── Divider ── */
+.dividerRow {
+  display: flex; align-items: center; gap: 16px;
+  margin: 12px 0; color: var(--muted-light); font-size: 0.8rem; font-weight: 500;
+}
+.dividerRow::before, .dividerRow::after { content: ''; flex: 1; height: 1px; background: var(--sand); }
+
+.forgotLink {
+  background: none; border: none; color: var(--gold);
+  font-size: 0.88rem; font-weight: 600; cursor: pointer;
+  padding: 8px 0; text-align: left; transition: var(--transition);
+  margin-bottom: 16px;
+}
+.forgotLink:hover { color: var(--forest); }
+
+@media (max-width: 900px) {
+  .layout    { grid-template-columns: 1fr; }
+  .leftPanel { display: none; }
+  .rightPanel { padding: 40px 24px; }
+}

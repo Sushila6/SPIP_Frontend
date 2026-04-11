@@ -1,0 +1,102 @@
+.modal { max-width: 860px; }
+
+.hero { position: relative; height: 340px; overflow: hidden; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+.hero img, .hero > div:first-child { height: 340px; }
+
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,26,24,0.85) 0%, rgba(26,26,24,0.1) 60%, transparent 100%);
+  display: flex; align-items: flex-end;
+}
+
+.heroContent { padding: 28px 32px; }
+.heroBadges  { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.heroTitle   { font-family: var(--font-display); font-size: 2rem; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+.heroLocation {
+  display: flex; align-items: center; gap: 6px;
+  color: rgba(255,255,255,0.75); font-size: 0.9rem; font-weight: 500;
+}
+
+.body { padding: 32px; display: grid; gap: 28px; }
+
+.priceSection {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 24px; flex-wrap: wrap;
+  padding-bottom: 24px; border-bottom: 1px solid var(--sand);
+}
+
+.bigPrice { font-family: var(--font-display); font-size: 2.2rem; color: var(--forest); line-height: 1.1; margin: 8px 0 4px; }
+.rate { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+.ctaGroup { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+.saveBtn, .savedBtn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--radius-xl);
+  font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em;
+  text-transform: uppercase; border: 1.5px solid; transition: var(--transition); cursor: pointer;
+}
+.saveBtn  { background: transparent; color: var(--ink); border-color: var(--sand-dark); }
+.saveBtn:hover  { border-color: #FDA4AF; color: #E11D48; background: #FFF1F2; }
+.savedBtn { background: #FFF1F2; color: #E11D48; border-color: #FDA4AF; }
+
+.statsGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+
+.stat {
+  padding: 16px 18px; background: var(--cream); border-radius: var(--radius-md);
+  border: 1px solid var(--sand); display: flex; flex-direction: column; gap: 6px;
+}
+.statLabel { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-light); font-weight: 700; }
+.statVal   { font-size: 0.95rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 6px; }
+
+.descSection { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.descCard {
+  padding: 20px; background: var(--cream); border-radius: var(--radius-md);
+  border: 1px solid var(--sand); display: grid; gap: 12px;
+}
+.descText { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+
+.adminPanel {
+  padding: 20px; border-radius: var(--radius-md);
+  border: 2px dashed var(--sand-dark); background: var(--cream-dark);
+  display: grid; gap: 14px;
+}
+.adminActions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .statsGrid   { grid-template-columns: repeat(2,1fr); }
+  .descSection { grid-template-columns: 1fr; }
+  .body        { padding: 20px; }
+  .heroTitle   { font-size: 1.5rem; }
+  .bigPrice    { font-size: 1.6rem; }
+}
+
+.approveBtn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: var(--radius-xl);
+  background: rgba(28,122,74,0.1); color: var(--success);
+  border: 1.5px solid rgba(28,122,74,0.25);
+  font-weight: 700; font-size: 0.85rem; cursor: pointer;
+  transition: var(--transition);
+}
+.approveBtn:hover { background: rgba(28,122,74,0.18); }
+
+.rejectBtn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: var(--radius-xl);
+  background: rgba(192,57,43,0.08); color: var(--danger);
+  border: 1.5px solid rgba(192,57,43,0.2);
+  font-weight: 700; font-size: 0.85rem; cursor: pointer;
+  transition: var(--transition);
+}
+.rejectBtn:hover { background: rgba(192,57,43,0.14); }
+
+.reservedNote {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border-radius: var(--radius-md);
+  background: var(--gold-pale); color: #92400E;
+  font-size: 0.84rem; font-weight: 600;
+}

@@ -1,0 +1,68 @@
+.card {
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid var(--sand); overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: fadeUp 0.45s cubic-bezier(0.4,0,0.2,1) both;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.media {
+  position: relative; cursor: pointer; overflow: hidden;
+  background: var(--cream-dark);
+}
+.media img, .media > div { transition: transform 400ms ease; }
+.media:hover img, .media:hover > div { transform: scale(1.04); }
+
+.mediaOverlay {
+  position: absolute; top: 12px; left: 12px;
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+
+.viewHint {
+  position: absolute; inset: 0; background: rgba(28,58,47,0.45);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-weight: 600; font-size: 0.9rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  opacity: 0; transition: opacity 300ms ease;
+}
+.media:hover .viewHint { opacity: 1; }
+
+.body { padding: 20px; display: grid; gap: 12px; }
+
+.location {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; color: var(--muted); font-weight: 500;
+}
+
+.title {
+  font-family: var(--font-display); font-size: 1.25rem;
+  color: var(--charcoal); cursor: pointer; line-height: 1.2;
+  transition: color var(--transition);
+}
+.title:hover { color: var(--forest); }
+
+.specs {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0; border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand);
+  flex-wrap: wrap;
+}
+.spec { display: flex; flex-direction: column; gap: 2px; }
+.specLabel { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-light); font-weight: 600; }
+.specVal   { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+.specDiv   { width: 1px; height: 28px; background: var(--sand); flex-shrink: 0; }
+
+.priceRow { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.price { font-family: var(--font-display); font-size: 1.4rem; color: var(--forest); }
+.bookedBy { font-size: 0.75rem; color: var(--muted); font-style: italic; }
+
+.actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.favBtn {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream-dark); color: var(--muted-light);
+  border: 1.5px solid var(--sand); transition: var(--transition); cursor: pointer;
+  flex-shrink: 0; margin-left: auto;
+}
+.favBtn:hover { border-color: #FDA4AF; color: #E11D48; background: #FFF1F2; }
+.favActive { color: #E11D48; border-color: #FDA4AF; background: #FFF1F2; }
