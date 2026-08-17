@@ -1,0 +1,227 @@
+.wrap  { display: grid; gap: 28px; }
+
+/* ── Header ── */
+.header { display: grid; gap: 24px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--charcoal);
+  margin-top: 8px; margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 0.9rem; color: var(--muted);
+  line-height: 1.7; max-width: 64ch;
+}
+.sub strong { color: var(--forest); font-weight: 700; }
+
+/* ── Progress ── */
+.progress {
+  background: var(--white); border: 1px solid var(--sand);
+  border-radius: var(--radius-lg); padding: 20px 24px;
+  display: grid; gap: 10px; max-width: 400px;
+}
+.progressNumbers { display: flex; align-items: baseline; gap: 8px; }
+.progressCount   { font-family: var(--font-display); font-size: 1.8rem; color: var(--forest); line-height: 1; }
+.progressLabel   { font-size: 0.8rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+.progressBar     { height: 6px; background: var(--sand); border-radius: 999px; overflow: hidden; }
+.progressFill    { height: 100%; border-radius: 999px; transition: width 400ms cubic-bezier(0.4,0,0.2,1), background 400ms ease; }
+.allDoneNote     { font-size: 0.82rem; font-weight: 700; color: var(--success); }
+
+/* ── Loading ── */
+.loadingRow { display: flex; justify-content: center; padding: 64px; }
+.spinner    { width: 36px; height: 36px; border-radius: 50%; border: 3px solid var(--sand); border-top-color: var(--forest); animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Section ── */
+.section { display: grid; gap: 16px; }
+.sectionLabel {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--gold);
+  display: flex; align-items: center; gap: 8px;
+}
+.sectionLabel::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--gold); }
+.optionalNote { font-size: 0.85rem; color: var(--muted); margin-top: -8px; }
+
+.docGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 14px; }
+
+/* ── Doc card ── */
+.docCard {
+  background: var(--white); border: 1.5px solid var(--sand);
+  border-radius: var(--radius-lg); padding: 20px;
+  display: grid; gap: 14px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.docCard:hover       { border-color: var(--sand-dark); box-shadow: var(--shadow-sm); }
+.docCardDone         { border-color: rgba(28,122,74,0.3); background: rgba(28,122,74,0.02); }
+.docCardDone:hover   { border-color: rgba(28,122,74,0.45); }
+
+/* ── Doc top row ── */
+.docTop  { display: flex; align-items: flex-start; gap: 12px; }
+.docIcon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+.docInfo { flex: 1; min-width: 0; }
+
+.docTitleRow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.docLabel    { font-family: var(--font-display); font-size: 1rem; color: var(--charcoal); font-weight: 500; }
+
+.requiredPill {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 2px 8px; border-radius: 999px;
+  background: rgba(192,57,43,0.1); color: var(--danger); border: 1px solid rgba(192,57,43,0.2);
+}
+.optionalPill {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 2px 8px; border-radius: 999px;
+  background: var(--cream-dark); color: var(--muted); border: 1px solid var(--sand);
+}
+
+.docDesc  { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+.doneCheck {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(28,122,74,0.12); color: var(--success);
+  display: grid; place-items: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+}
+
+/* ── Uploaded files list ── */
+.uploadedList {
+  display: grid; gap: 8px; padding: 10px 12px;
+  background: var(--cream); border-radius: var(--radius-md); border: 1px solid var(--sand);
+}
+
+.uploadedFile {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; flex-wrap: wrap;
+}
+
+.fileIcon { font-size: 1rem; flex-shrink: 0; }
+
+.fileName {
+  flex: 1; color: var(--ink); font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
+}
+
+.fileSize { color: var(--muted-light); font-size: 0.75rem; flex-shrink: 0; }
+
+/* ── File action buttons ── */
+.fileActions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; flex-wrap: wrap; }
+
+.viewLink {
+  color: var(--forest); font-weight: 700; font-size: 0.78rem;
+  text-decoration: none; padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  background: rgba(28,58,47,0.07); border: 1px solid rgba(28,58,47,0.12);
+  transition: var(--transition); white-space: nowrap;
+}
+.viewLink:hover { background: rgba(28,58,47,0.14); }
+
+/* Delete button — trash icon */
+.deleteBtn {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: var(--radius-sm);
+  background: transparent; border: 1px solid var(--sand);
+  color: var(--muted-light); cursor: pointer; transition: var(--transition);
+  flex-shrink: 0;
+}
+.deleteBtn:hover {
+  background: rgba(192,57,43,0.08);
+  border-color: rgba(192,57,43,0.25);
+  color: var(--danger);
+}
+
+/* Confirm row */
+.confirmRow {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap; width: 100%;
+  padding: 8px 10px; margin-top: 2px;
+  background: rgba(192,57,43,0.05);
+  border: 1px solid rgba(192,57,43,0.18);
+  border-radius: var(--radius-md);
+  animation: fadeUp 0.18s ease both;
+}
+
+.confirmText {
+  font-size: 0.78rem; font-weight: 600; color: var(--danger); flex: 1;
+  white-space: nowrap;
+}
+
+.confirmYes {
+  padding: 4px 12px; border-radius: 999px;
+  background: var(--danger); color: var(--white);
+  font-size: 0.75rem; font-weight: 700; border: none; cursor: pointer;
+  transition: var(--transition); white-space: nowrap;
+}
+.confirmYes:hover { background: #a93226; }
+
+.confirmNo {
+  padding: 4px 12px; border-radius: 999px;
+  background: var(--cream-dark); color: var(--muted);
+  font-size: 0.75rem; font-weight: 700; border: 1px solid var(--sand);
+  cursor: pointer; transition: var(--transition); white-space: nowrap;
+}
+.confirmNo:hover { background: var(--sand); }
+
+/* Deleting spinner state */
+.deletingState {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.78rem; color: var(--muted);
+}
+
+/* ── Upload area ── */
+.uploadArea { display: flex; }
+
+.uploadLabel {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; padding: 10px 16px; border-radius: var(--radius-md);
+  border: 1.5px dashed var(--sand-dark); background: var(--cream);
+  cursor: pointer; transition: var(--transition); min-height: 46px;
+}
+.uploadLabel:hover:not(.uploadLabelDisabled) { border-color: var(--forest); background: rgba(28,58,47,0.03); }
+.uploadLabelDisabled { opacity: 0.6; cursor: not-allowed; }
+.fileInput { display: none; }
+
+.uploadState {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; font-weight: 600; color: var(--forest);
+}
+.uploadingState {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.85rem; color: var(--muted);
+}
+.uploadSpinner {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--sand); border-top-color: var(--forest);
+  animation: spin 0.6s linear infinite; flex-shrink: 0;
+}
+
+/* ── Messages ── */
+.errorMsg {
+  font-size: 0.8rem; color: var(--danger); font-weight: 500;
+  background: rgba(192,57,43,0.06); border: 1px solid rgba(192,57,43,0.15);
+  padding: 8px 12px; border-radius: var(--radius-sm);
+}
+.successMsg { font-size: 0.8rem; color: var(--success); font-weight: 500; }
+
+/* ── Info box ── */
+.infoBox {
+  background: var(--cream-dark); border: 1px solid var(--sand);
+  border-radius: var(--radius-lg); padding: 18px 22px; display: grid; gap: 10px;
+}
+.infoRow { display: flex; align-items: flex-start; gap: 12px; font-size: 0.84rem; color: var(--muted); line-height: 1.55; }
+.infoIcon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Actions ── */
+.actions      { display: grid; gap: 10px; justify-items: start; }
+.btnDisabled  { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+.submitNote   { font-size: 0.82rem; color: var(--muted); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .docGrid  { grid-template-columns: 1fr; }
+  .progress { max-width: 100%; }
+  .confirmRow { flex-direction: column; align-items: flex-start; }
+}
